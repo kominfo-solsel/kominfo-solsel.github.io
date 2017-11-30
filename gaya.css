@@ -71,41 +71,6 @@ p {
   border-left-color: transparent;
 }
 
-.button {
-  background: #3498db;
-  width: 180px;
-  padding: 4px 0;
-  
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border-radius: 3px;
-
-  p {
-   	font-family: 'Roboto'; 
-	  text-align: center;
-  	text-transform: uppercase;
-    color: #FFF;
-    user-select: none;
-  }
-  
-  &:hover {
-    cursor: pointer;
-  }
-  
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 10%;
-    border-radius: 50%;
-    background-color: darken(#f1c40f, 20%);
-    opacity: 0.4;
-    bottom: -30px;
-  }
-}
 .loader-icon:after {
   top: 16.5%;
   left: 16.5%;
@@ -172,5 +137,34 @@ p {
   95% {
     background: #2e2e2e url(https://www.bungie.net/img/theme/destiny/headers/forum_headers_clans_v2.jpg?cv=3983621212&av=446517217) no-repeat center;
   background-size: cover;
+  }
+}
+
+.button {
+  display: block;
+  font-size: $font_size;
+  text-align: center;
+  line-height: $height;
+  text-decoration: none;
+  color: $txt_color;
+  background-color: $bg;
+  border-radius: 4px;
+  @include middle($width, $height);
+  @include text-shadow(0 -1px -1px darken($bg, 7%));
+  @include box-shadow(
+    0 4px 0 darken($bg, 7%),
+    0 5px 5px 1px $bg_shadow);
+  @include transition(all .15s ease-in-out);
+  
+  &:hover{
+    background-color: $bg_hover;
+    @include text-shadow(0 -1px -1px darken($bg_hover, 7%));
+    @include box-shadow(
+      0 4px 0 darken($bg_hover, 7%),
+      0 5px 5px 1px $bg_shadow);
+  }
+  &:active {
+    margin-top: (-$height)/2 + 4;
+    @include box-shadow(none);
   }
 }
