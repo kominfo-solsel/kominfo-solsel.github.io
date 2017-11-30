@@ -1,63 +1,110 @@
-*, *:before, *:after {
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  background: #222;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: Arial, sans-serif;
+  background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
-a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 100px 0;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
   text-decoration: none;
   cursor: pointer;
-  border: 1px solid #EE3769;
-  border-radius: 8px;
-  height: 2.8em;
-  width: 10em;
-  padding: 0;
-  outline: none;
-  overflow: hidden;
-  color: #EE3769;
-  -webkit-transition: color 0.3s 0.1s ease-out;
-  transition: color 0.3s 0.1s ease-out;
-  text-align: center;
-  line-height: 150%;
+  transition: all 0.3s ease-out;
 }
-a::before {
+.button:hover {
+  background: #06D85F;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
   position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 0.2s;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+/*Let's make it appear when the page loads*/
+.overlay:target:before {
+    display: none;
+}
+.overlay:before {
+  content:"";
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
-  content: '';
-  border-radius: 50%;
   display: block;
-  width: 20em;
-  height: 20em;
-  line-height: 20em;
-  left: -5em;
-  text-align: center;
-  -webkit-transition: box-shadow 0.5s ease-out;
-  transition: box-shadow 0.5s ease-out;
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 9;
 }
-a:hover {
-  color: #fff;
+.overlay .popup {
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: fixed;
+  top: 0;
+  left: 35%;
+  padding: 25px;
+  margin: 70px auto;
+  z-index: 10;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
-a:hover::before {
-  box-shadow: inset 0 0 0 10em #ee3769;
+.overlay:target .popup {
+    top: -100%;
+    left: -100%;
+}
+
+@media screen and (max-width: 768px){
+  .box{
+    width: 70%;
+  }
+  .overlay .popup{
+    width: 70%;
+    left: 15%;
+  }
 }
