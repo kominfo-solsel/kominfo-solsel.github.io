@@ -30,10 +30,10 @@ h1 {
 
 .button {
   font-size: 1em;
-  padding: 10px;
+  padding: 5px;
   color: #fff;
   border: 2px solid #06D85F;
-  border-radius: 20px/50px;
+  border-radius: 10px/25px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
