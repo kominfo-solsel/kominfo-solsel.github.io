@@ -3,8 +3,8 @@
 }
 
 html, body {
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
 }
 
 body {
@@ -34,7 +34,7 @@ a {
   -webkit-transition: color 0.3s 0.1s ease-out;
   transition: color 0.3s 0.1s ease-out;
   text-align: center;
-  line-height: 250%;
+  line-height: 150%;
 }
 a::before {
   position: absolute;
